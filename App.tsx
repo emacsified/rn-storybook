@@ -10,7 +10,14 @@
 import 'react-native-gesture-handler';
 
 import React from 'react';
-import {SafeAreaView, StyleSheet, ScrollView, View, Text, StatusBar} from 'react-native';
+import {
+  SafeAreaView,
+  StyleSheet,
+  ScrollView,
+  View,
+  Text,
+  StatusBar,
+} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 // import {createStackNavigator} from '@react-navigation/stack';
 import FoundationIcon from 'react-native-vector-icons/Foundation';
@@ -26,6 +33,7 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 
 import Home from './src/screens/Home';
+import Storybook from './storybook';
 
 declare const global: {HermesInternal: null | {}};
 
@@ -73,7 +81,9 @@ const styles = StyleSheet.create({
 
 const ReactAppPage = () => (
   <SafeAreaView>
-    <ScrollView contentInsetAdjustmentBehavior="automatic" style={styles.scrollView}>
+    <ScrollView
+      contentInsetAdjustmentBehavior="automatic"
+      style={styles.scrollView}>
       <Header />
       {global.HermesInternal == null ? null : (
         <View style={styles.engine}>
@@ -84,8 +94,8 @@ const ReactAppPage = () => (
         <View style={styles.sectionContainer}>
           <Text style={styles.sectionTitle}>Step One</Text>
           <Text style={styles.sectionDescription}>
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this screen and then come
-            back to see your edits.
+            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
+            screen and then come back to see your edits.
           </Text>
         </View>
         <View style={styles.sectionContainer}>
@@ -102,7 +112,9 @@ const ReactAppPage = () => (
         </View>
         <View style={styles.sectionContainer}>
           <Text style={styles.sectionTitle}>Learn More</Text>
-          <Text style={styles.sectionDescription}>Read the docs to discover what to do next:</Text>
+          <Text style={styles.sectionDescription}>
+            Read the docs to discover what to do next:
+          </Text>
         </View>
         <LearnMoreLinks />
       </View>
@@ -127,13 +139,18 @@ const App = () => {
                 iconName = 'paw';
               } else if (route.name == 'react') {
                 iconName = 'lightbulb';
+              } else if (route.name == 'storybook') {
+                iconName = 'book';
               }
               // You can return any component that you like here!
-              return <FoundationIcon name={iconName} size={size} color={color} />;
+              return (
+                <FoundationIcon name={iconName} size={size} color={color} />
+              );
             },
           })}>
           <Tab.Screen name="home" component={Home} />
           <Tab.Screen name="react" component={ReactAppPage} />
+          <Tab.Screen name="storybook" component={Storybook} />
         </Tab.Navigator>
       </NavigationContainer>
     </>

@@ -1,10 +1,19 @@
 import React from 'react';
-import {SafeAreaView, StyleSheet, Text} from 'react-native';
-import {PageWrapper} from '../components';
+import {SafeAreaView, StyleSheet, ScrollView} from 'react-native';
+import {PageWrapper, Text as CustomText, Title, Subtitle} from '../components';
 const Home = () => {
+  console.log('Title: ', Title);
+  console.log('Subtitle', Subtitle);
+
   return (
     <PageWrapper>
-      <Text>Home Page</Text>
+      <SafeAreaView>
+        <ScrollView>
+          <CustomText>Home Page custom</CustomText>
+          <Title>Title Text</Title>
+          <Subtitle>Subtitle Text</Subtitle>
+        </ScrollView>
+      </SafeAreaView>
     </PageWrapper>
   );
 };

@@ -2,19 +2,26 @@ import React from 'react';
 
 import {Text, StyleSheet} from 'react-native';
 
-const BaseText = () => {
-  return <Text style={styles.default} />;
+const BaseText = ({children}) => {
+  return <Text style={styles.default}>{children}</Text>;
 };
 
-const Title = () => {
+const Title = ({children}) => (
   <BaseText>
-    <Text style={styles.title}>This is Title Text</Text>
-  </BaseText>;
-};
+    <Text style={styles.title}>{children}</Text>
+  </BaseText>
+);
+
+const Subtitle = ({children}) => (
+  <BaseText>
+    <Text style={styles.subtitle}>{children}</Text>
+  </BaseText>
+);
 
 const styles = StyleSheet.create({
-  default: {fontSize: 14, fontWeight: 'normal', lineHeight: 1},
-  title: {},
+  default: {fontSize: 14, fontWeight: 'normal', lineHeight: 17},
+  title: {fontWeight: 'bold', fontSize: 24, lineHeight: 28},
+  subtitle: {fontWeight: '400', fontSize: 20, lineHeight: 24},
 });
-
-export {Title};
+export default BaseText;
+export {Title, Subtitle};

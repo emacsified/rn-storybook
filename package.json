@@ -1,6 +1,6 @@
 {
   "name": "tindurr",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "private": true,
   "scripts": {
     "android": "react-native run-android",
@@ -8,7 +8,8 @@
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "storybook": "start-storybook -p 7007"
+    "storybook": "start-storybook -p 7007",
+    "release": "standard-version"
   },
   "dependencies": {
     "@react-native-community/masked-view": "^0.1.10",
@@ -26,6 +27,9 @@
   "devDependencies": {
     "@babel/core": "^7.8.4",
     "@babel/runtime": "^7.8.4",
+    "@commitlint/cli": "^9.0.1",
+    "@commitlint/config-conventional": "^9.0.1",
+    "@commitlint/core": "^9.0.1",
     "@react-native-community/eslint-config": "^1.1.0",
     "@storybook/addon-actions": "^5.3.19",
     "@storybook/addon-links": "^5.3.19",
@@ -39,23 +43,40 @@
     "@typescript-eslint/parser": "^2.27.0",
     "babel-jest": "^25.1.0",
     "babel-loader": "^8.1.0",
-    "eslint": "^6.5.1",
+    "commitlint-config-gitmoji": "^1.0.1",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-config-react-app": "^5.2.1",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.20.3",
+    "git-commit-template": "^1.0.5",
+    "husky": "^4.2.5",
     "jest": "^25.1.0",
+    "lint-staged": "^10.2.11",
     "metro-react-native-babel-preset": "^0.59.0",
-    "prettier": "^2.0.4",
+    "prettier": "^2.0.5",
     "react-dom": "^16.13.1",
     "react-test-renderer": "16.13.1",
+    "semantic-commit-emoji": "^0.6.0",
+    "standard-version": "^8.0.1",
     "typescript": "^3.8.3"
   },
   "jest": {
     "preset": "react-native",
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "jsx",
-      "json",
-      "node"
-    ]
+    "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"]
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": "eslint --fix",
+    "*.{js,css,less,ejs,json}": "prettier --write"
   }
 }

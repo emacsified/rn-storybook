@@ -1,12 +1,19 @@
-import React from 'react';
-import {SafeAreaView, StyleSheet, ScrollView} from 'react-native';
-import {PageWrapper, Text as CustomText, Title, Subtitle} from '../components';
+import React from "react";
+import { SafeAreaView, StyleSheet, ScrollView } from "react-native";
+import { PageWrapper, Text as CustomText, Title, Subtitle } from "../components/index.tsx";
+
+const styles = StyleSheet.create({
+  home: {
+    backgroundColor: "white",
+  },
+});
+
 const Home = () => {
-  console.log('Title: ', Title);
-  console.log('Subtitle', Subtitle);
+  console.log("Title: ", Title);
+  console.log("Subtitle", Subtitle);
 
   return (
-    <PageWrapper>
+    <PageWrapper style={styles.home}>
       <SafeAreaView>
         <ScrollView>
           <CustomText>Home Page custom</CustomText>
@@ -17,11 +24,5 @@ const Home = () => {
     </PageWrapper>
   );
 };
-
-const styles = StyleSheet.create({
-  home: {
-    backgroundColor: 'white',
-  },
-});
 
 export default Home;

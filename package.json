@@ -78,5 +78,10 @@
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": "eslint --fix",
     "*.{js,css,less,ejs,json}": "prettier --write"
+  },
+  "standard-version": {
+    "skip": {
+      "commit": true
+    }
   }
 }

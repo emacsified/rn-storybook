@@ -1,6 +1,6 @@
 {
   "name": "tindurr",
-  "version": "0.0.3",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "android": "react-native run-android",
@@ -9,7 +9,9 @@
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "storybook": "start-storybook -p 7007",
-    "release": "standard-version"
+    "release": "standard-version",
+    "style_check": "npm run lint",
+    "ci-build": "tsc"
   },
   "dependencies": {
     "@react-native-community/masked-view": "^0.1.10",
@@ -22,7 +24,8 @@
     "react-native-reanimated": "^1.9.0",
     "react-native-safe-area-context": "^3.1.1",
     "react-native-screens": "^2.9.0",
-    "react-native-vector-icons": "^7.0.0"
+    "react-native-vector-icons": "^7.0.0",
+    "standard-version": "^8.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
@@ -39,21 +42,16 @@
     "@types/jest": "^25.2.3",
     "@types/react-native": "^0.62.0",
     "@types/react-test-renderer": "^16.9.2",
-    "@typescript-eslint/eslint-plugin": "^2.27.0",
-    "@typescript-eslint/parser": "^2.27.0",
+    "@typescript-eslint/eslint-plugin": "^3.6.0",
     "babel-jest": "^25.1.0",
     "babel-loader": "^8.1.0",
-    "commitlint-config-gitmoji": "^1.0.1",
-    "eslint": "^6.8.0",
-    "eslint-config-airbnb": "^18.2.0",
-    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint": "^7.4.0",
+    "eslint-config-airbnb-typescript": "^8.0.2",
     "eslint-config-prettier": "^6.11.0",
-    "eslint-config-react-app": "^5.2.1",
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-jsx-a11y": "^6.3.1",
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.20.3",
-    "git-commit-template": "^1.0.5",
     "husky": "^4.2.5",
     "jest": "^25.1.0",
     "lint-staged": "^10.2.11",
@@ -61,8 +59,6 @@
     "prettier": "^2.0.5",
     "react-dom": "^16.13.1",
     "react-test-renderer": "16.13.1",
-    "semantic-commit-emoji": "^0.6.0",
-    "standard-version": "^8.0.1",
     "typescript": "^3.8.3"
   },
   "jest": {
@@ -76,7 +72,7 @@
     }
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": "eslint --fix",
+    "*.{js,jsx,ts,tsx}": "eslint --fix --ext .js,.jsx,.ts,.tsx",
     "*.{js,css,less,ejs,json}": "prettier --write"
   },
   "standard-version": {

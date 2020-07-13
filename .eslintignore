@@ -1,3 +1,8 @@
 build/
 public/
 node_modules/
+*.md
+*.yml
+global.d.ts
+.eslintrc.js
+commitlint.config.js

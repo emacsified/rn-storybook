@@ -1,3 +1,5 @@
+// TODO: Change standard-release to handle emoji verisons
+
 /**
  * Sample React Native App
  * https://github.com/facebook/react-native
@@ -7,22 +9,15 @@
  *
  * @format
  */
-import 'react-native-gesture-handler';
+import "react-native-gesture-handler";
 
-import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-} from 'react-native';
-import {NavigationContainer} from '@react-navigation/native';
+import React from "react";
+import { SafeAreaView, StyleSheet, ScrollView, View, Text, StatusBar } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
 // import {createStackNavigator} from '@react-navigation/stack';
-import FoundationIcon from 'react-native-vector-icons/Foundation';
+import FoundationIcon from "react-native-vector-icons/Foundation";
 
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 import {
   Header,
@@ -30,12 +25,10 @@ import {
   Colors,
   DebugInstructions,
   ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+} from "react-native/Libraries/NewAppScreen";
 
-import Home from './src/screens/Home';
-import Storybook from './storybook';
-
-declare const global: {HermesInternal: null | {}};
+import Home from "./src/screens/Home";
+import Storybook from "./storybook";
 
 // const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -45,7 +38,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.lighter,
   },
   engine: {
-    position: 'absolute',
+    position: "absolute",
     right: 0,
   },
   body: {
@@ -57,33 +50,31 @@ const styles = StyleSheet.create({
   },
   sectionTitle: {
     fontSize: 24,
-    fontWeight: '600',
+    fontWeight: "600",
     color: Colors.black,
   },
   sectionDescription: {
     marginTop: 8,
     fontSize: 18,
-    fontWeight: '400',
+    fontWeight: "400",
     color: Colors.dark,
   },
   highlight: {
-    fontWeight: '700',
+    fontWeight: "700",
   },
   footer: {
     color: Colors.dark,
     fontSize: 12,
-    fontWeight: '600',
+    fontWeight: "600",
     padding: 4,
     paddingRight: 12,
-    textAlign: 'right',
+    textAlign: "right",
   },
 });
 
 const ReactAppPage = () => (
   <SafeAreaView>
-    <ScrollView
-      contentInsetAdjustmentBehavior="automatic"
-      style={styles.scrollView}>
+    <ScrollView contentInsetAdjustmentBehavior="automatic" style={styles.scrollView}>
       <Header />
       {global.HermesInternal == null ? null : (
         <View style={styles.engine}>
@@ -94,8 +85,8 @@ const ReactAppPage = () => (
         <View style={styles.sectionContainer}>
           <Text style={styles.sectionTitle}>Step One</Text>
           <Text style={styles.sectionDescription}>
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
+            Edit <Text style={styles.highlight}>App.tsx</Text> to change this screen and then come
+            back to see your edits.
           </Text>
         </View>
         <View style={styles.sectionContainer}>
@@ -112,9 +103,7 @@ const ReactAppPage = () => (
         </View>
         <View style={styles.sectionContainer}>
           <Text style={styles.sectionTitle}>Learn More</Text>
-          <Text style={styles.sectionDescription}>
-            Read the docs to discover what to do next:
-          </Text>
+          <Text style={styles.sectionDescription}>Read the docs to discover what to do next:</Text>
         </View>
         <LearnMoreLinks />
       </View>
@@ -127,27 +116,27 @@ const App = () => {
     <>
       <NavigationContainer>
         <StatusBar barStyle="dark-content" />
-        {/*<Stack.Navigator>
+        {/* <Stack.Navigator>
                     <Stack.Screen name="Home" component={Home} />
                     <Stack.Screen name="React" component={ReactAppPage} />
                     </Stack.Navigator> */}
         <Tab.Navigator
-          screenOptions={({route}) => ({
-            tabBarIcon: ({focused, color, size}) => {
+          screenOptions={({ route }) => ({
+            tabBarIcon: ({ focused, color, size }: any) => {
               let iconName;
-              if (route.name == 'home') {
-                iconName = 'paw';
-              } else if (route.name == 'react') {
-                iconName = 'lightbulb';
-              } else if (route.name == 'storybook') {
-                iconName = 'book';
+              console.log(focused, color, size);
+              if (route.name === "home") {
+                iconName = "paw";
+              } else if (route.name === "react") {
+                iconName = "lightbulb";
+              } else if (route.name === "storybook") {
+                iconName = "book";
               }
               // You can return any component that you like here!
-              return (
-                <FoundationIcon name={iconName} size={size} color={color} />
-              );
+              return <FoundationIcon name={iconName} size={size} color={color} />;
             },
-          })}>
+          })}
+        >
           <Tab.Screen name="home" component={Home} />
           <Tab.Screen name="react" component={ReactAppPage} />
           <Tab.Screen name="storybook" component={Storybook} />

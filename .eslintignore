@@ -6,3 +6,5 @@ node_modules/
 global.d.ts
 .eslintrc.js
 commitlint.config.js
+babel.config.js
+metro.config.js

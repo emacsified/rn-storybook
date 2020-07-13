@@ -1,6 +1,6 @@
 import React from "react";
 import { SafeAreaView, StyleSheet, ScrollView } from "react-native";
-import { PageWrapper, Text as CustomText, Title, Subtitle } from "../components/index.tsx";
+import { PageWrapper, Text as CustomText, Title, Subtitle } from "../components/index";
 
 const styles = StyleSheet.create({
   home: {

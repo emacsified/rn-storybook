@@ -76,16 +76,15 @@ const ReactAppPage = () => (
   <SafeAreaView>
     <ScrollView contentInsetAdjustmentBehavior="automatic" style={styles.scrollView}>
       <Header />
-      {global.HermesInternal == null ? null : (
-        <View style={styles.engine}>
-          <Text style={styles.footer}>Engine: Hermes</Text>
-        </View>
-      )}
       <View style={styles.body}>
         <View style={styles.sectionContainer}>
           <Text style={styles.sectionTitle}>Step One</Text>
           <Text style={styles.sectionDescription}>
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this screen and then come
+            Edit
+            {' '}
+            <Text style={styles.highlight}>App.tsx</Text>
+            {' '}
+            to change this screen and then come
             back to see your edits.
           </Text>
         </View>
@@ -111,39 +110,37 @@ const ReactAppPage = () => (
   </SafeAreaView>
 );
 
-const App = () => {
-  return (
-    <>
-      <NavigationContainer>
-        <StatusBar barStyle="dark-content" />
-        {/* <Stack.Navigator>
+const App = () => (
+  <>
+    <NavigationContainer>
+      <StatusBar barStyle="dark-content" />
+      {/* <Stack.Navigator>
                     <Stack.Screen name="Home" component={Home} />
                     <Stack.Screen name="React" component={ReactAppPage} />
                     </Stack.Navigator> */}
-        <Tab.Navigator
-          screenOptions={({ route }) => ({
-            tabBarIcon: ({ focused, color, size }: any) => {
-              let iconName;
-              console.log(focused, color, size);
-              if (route.name === "home") {
-                iconName = "paw";
-              } else if (route.name === "react") {
-                iconName = "lightbulb";
-              } else if (route.name === "storybook") {
-                iconName = "book";
-              }
-              // You can return any component that you like here!
-              return <FoundationIcon name={iconName} size={size} color={color} />;
-            },
-          })}
-        >
-          <Tab.Screen name="home" component={Home} />
-          <Tab.Screen name="react" component={ReactAppPage} />
-          <Tab.Screen name="storybook" component={Storybook} />
-        </Tab.Navigator>
-      </NavigationContainer>
-    </>
-  );
-};
+      <Tab.Navigator
+        screenOptions={({ route }) => ({
+          tabBarIcon: ({ focused, color, size }: any) => {
+            let iconName;
+            console.log(focused, color, size);
+            if (route.name === "home") {
+              iconName = "paw";
+            } else if (route.name === "react") {
+              iconName = "lightbulb";
+            } else if (route.name === "storybook") {
+              iconName = "book";
+            }
+            // You can return any component that you like here!
+            return <FoundationIcon name={iconName} size={size} color={color} />;
+          },
+        })}
+      >
+        <Tab.Screen name="home" component={Home} />
+        <Tab.Screen name="react" component={ReactAppPage} />
+        <Tab.Screen name="storybook" component={Storybook} />
+      </Tab.Navigator>
+    </NavigationContainer>
+  </>
+);
 
 export default App;

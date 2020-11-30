@@ -16,18 +16,12 @@ import { SafeAreaView, StyleSheet, ScrollView, View, Text, StatusBar } from "rea
 import { NavigationContainer } from "@react-navigation/native";
 // import {createStackNavigator} from '@react-navigation/stack';
 import FoundationIcon from "react-native-vector-icons/Foundation";
-
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from "react-native/Libraries/NewAppScreen";
+import { Colors } from "react-native/Libraries/NewAppScreen";
 
 import Home from "./src/screens/Home";
+import Movies from "./src/screens/Movies";
 import Storybook from "./storybook";
 
 // const Stack = createStackNavigator();
@@ -72,75 +66,34 @@ const styles = StyleSheet.create({
   },
 });
 
-const ReactAppPage = () => (
-  <SafeAreaView>
-    <ScrollView contentInsetAdjustmentBehavior="automatic" style={styles.scrollView}>
-      <Header />
-      <View style={styles.body}>
-        <View style={styles.sectionContainer}>
-          <Text style={styles.sectionTitle}>Step One</Text>
-          <Text style={styles.sectionDescription}>
-            Edit
-            {' '}
-            <Text style={styles.highlight}>App.tsx</Text>
-            {' '}
-            to change this screen and then come
-            back to see your edits.
-          </Text>
-        </View>
-        <View style={styles.sectionContainer}>
-          <Text style={styles.sectionTitle}>See Your Changes</Text>
-          <Text style={styles.sectionDescription}>
-            <ReloadInstructions />
-          </Text>
-        </View>
-        <View style={styles.sectionContainer}>
-          <Text style={styles.sectionTitle}>Debug</Text>
-          <Text style={styles.sectionDescription}>
-            <DebugInstructions />
-          </Text>
-        </View>
-        <View style={styles.sectionContainer}>
-          <Text style={styles.sectionTitle}>Learn More</Text>
-          <Text style={styles.sectionDescription}>Read the docs to discover what to do next:</Text>
-        </View>
-        <LearnMoreLinks />
-      </View>
-    </ScrollView>
-  </SafeAreaView>
-);
-
 const App = () => (
-  <>
-    <NavigationContainer>
-      <StatusBar barStyle="dark-content" />
-      {/* <Stack.Navigator>
+  <NavigationContainer>
+    <StatusBar barStyle="dark-content" />
+    {/* <Stack.Navigator>
                     <Stack.Screen name="Home" component={Home} />
                     <Stack.Screen name="React" component={ReactAppPage} />
                     </Stack.Navigator> */}
-      <Tab.Navigator
-        screenOptions={({ route }) => ({
-          tabBarIcon: ({ focused, color, size }: any) => {
-            let iconName;
-            console.log(focused, color, size);
-            if (route.name === "home") {
-              iconName = "paw";
-            } else if (route.name === "react") {
-              iconName = "lightbulb";
-            } else if (route.name === "storybook") {
-              iconName = "book";
-            }
-            // You can return any component that you like here!
-            return <FoundationIcon name={iconName} size={size} color={color} />;
-          },
-        })}
-      >
-        <Tab.Screen name="home" component={Home} />
-        <Tab.Screen name="react" component={ReactAppPage} />
-        <Tab.Screen name="storybook" component={Storybook} />
-      </Tab.Navigator>
-    </NavigationContainer>
-  </>
+    <Tab.Navigator
+      screenOptions={({ route }) => ({
+        tabBarIcon: ({ color, size }: any) => {
+          let iconName;
+          if (route.name === "Profile") {
+            iconName = "torso";
+          } else if (route.name === "Movies") {
+            iconName = "play-circle";
+          } else if (route.name === "Storybook") {
+            iconName = "book";
+          }
+          // You can return any component that you like here!
+          return <FoundationIcon name={iconName} size={size} color={color} />;
+        },
+      })}
+    >
+      {!false && <Tab.Screen name="Profile" component={Home} />}
+      {!false && <Tab.Screen name="Movies" component={Movies} />}
+      {!false && <Tab.Screen name="Storybook" component={Storybook} />}
+    </Tab.Navigator>
+  </NavigationContainer>
 );
 
 export default App;
